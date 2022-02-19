@@ -1,0 +1,1 @@
+cat $PWD/src/main/resources/boundingbox/test3.txt | java -jar $PWD/target/scala-2.13/boundingbox.jar
