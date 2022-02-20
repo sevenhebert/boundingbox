@@ -6,12 +6,15 @@ object model {
 
   case object BoundingBox {
     def apply(ns: List[Node]): Option[BoundingBox] =
-      if (ns.length > 1) Some(BoundingBox(
-        ns.minBy(_.y).y,
-        ns.maxBy(_.x).x,
-        ns.maxBy(_.y).y,
-        ns.minBy(_.x).x
-      ))
+      if (ns.length > 1)
+        Some(
+          BoundingBox(
+            ns.minBy(_.y).y,
+            ns.maxBy(_.x).x,
+            ns.maxBy(_.y).y,
+            ns.minBy(_.x).x
+          )
+        )
       else None
   }
 

@@ -13,7 +13,9 @@ object Parser {
     def rec(ri: Int, input: List[Node]): List[Node] = readLine match {
       case line if line == null => input
       case line =>
-        val row = line.zipWithIndex.collect { case (char, ci) if char == '*' => Node(ri, ci) }.toList
+        val row = line.zipWithIndex.collect {
+          case (char, ci) if char == '*' => Node(ri, ci)
+        }.toList
         rec(ri + 1, input :++ row)
     }
 
