@@ -28,4 +28,15 @@ class ServiceSpec extends UnitSpec {
     assert(result == expect)
   }
 
+  "Service.removeOverlapping test1.txt" should "return a result set with a single bounding box" in {
+    val bbs = List(
+      BoundingBox(0, 1, 1, 0),
+      BoundingBox(0, 11, 2, 8),
+      BoundingBox(1, 9, 3, 4)
+    )
+    val result = bbs.flatMap(bb => service.removeOverlapping(bbs)(bb))
+    val expect = List(BoundingBox(0, 1, 1, 0))
+    assert(result == expect)
+  }
+
 }
