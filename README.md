@@ -16,10 +16,19 @@ At the project root run:
 ```
 $ java -jar $PWD/target/scala-2.13/boundingbox.jar
 ```
-To read in a corpus of text, and output the resulting bounding boxes to your shell:
+To read in a corpus of text, and output the resulting bounding boxes to your shell run:
 ```
 $ cat <pathToFile> | java -jar $PWD/target/scala-2.13/boundingbox.jar
 
-e.g., cat $PWD/src/main/resources/boundingbox/test3.txt | java -jar $PWD/target/scala-2.13/boundingbox.jar
+e.g., cat $PWD/src/test/resources/boundingbox/test3.txt | java -jar $PWD/target/scala-2.13/boundingbox.jar
 ```
 
+## Run the unit tests:
+```
+$ sbt clean coverage test
+```
+To generate the coverage reports (after running the tests) run:
+```
+$ sbt coverageReport
+```
+The html report should be located here: `/bounding-box/target/scala-2.13/scoverage-report/index.html`

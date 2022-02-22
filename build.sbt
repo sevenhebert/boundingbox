@@ -11,3 +11,11 @@ lazy val app = (project in file("."))
       "org.scalatest" %% "scalatest" % "3.2.9" % Test
     )
   )
+
+//coverageFailOnMinimum := false
+//coverageMinimumStmtTotal := 80
+//coverageMinimumBranchTotal := 80
+coverageExcludedPackages := List(
+  "boundingbox.model",
+  "boundingbox.Main",
+).mkString(";")

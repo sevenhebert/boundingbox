@@ -7,11 +7,7 @@ import scala.annotation.tailrec
 object Service {
 
   @tailrec
-  def getNeighbors(
-      rem: List[Node],
-      q: List[Node],
-      res: List[Node]
-  ): (List[Node], List[Node]) = q match {
+  private def getNeighbors(rem: List[Node], q: List[Node], res: List[Node]): (List[Node], List[Node]) = q match {
     case Nil => (rem, res)
     case cur :: rest =>
       val Node(x, y) = cur
@@ -26,19 +22,14 @@ object Service {
   }
 
   @tailrec
-  def getBoundingBoxes(
-      q: List[Node],
-      res: List[Option[BoundingBox]]
-  ): List[BoundingBox] = q match {
+  def getBoundingBoxes(q: List[Node], res: List[Option[BoundingBox]]): List[BoundingBox] = q match {
     case Nil => res.flatten
     case cur :: rest =>
       val (remaining, neighbors) = getNeighbors(rest, List(cur), List(cur))
       getBoundingBoxes(remaining, res :+ BoundingBox(neighbors))
   }
 
-  def removeOverlapping(
-      bbs: List[BoundingBox]
-  )(cur: BoundingBox): Option[BoundingBox] = {
+  def removeOverlapping(bbs: List[BoundingBox])(cur: BoundingBox): Option[BoundingBox] = {
     val curIdx = bbs.indexOf(cur)
 
     @tailrec
