@@ -28,6 +28,24 @@ class ServiceSpec extends UnitSpec {
     assert(result == expect)
   }
 
+  "Service.getBoundingBoxes test6.txt" should "return a single bounding box" in {
+    val file = "boundingbox/test6.txt"
+    val input = TestParser.parse(file)
+    val result = service.getBoundingBoxes(input, List.empty)
+
+    val expect = List(BoundingBox(0, 11, 3, 0))
+    assert(result == expect)
+  }
+
+  "Service.getBoundingBoxes test7.txt" should "return no bounding boxes" in {
+    val file = "boundingbox/test7.txt"
+    val input = TestParser.parse(file)
+    val result = service.getBoundingBoxes(input, List.empty)
+
+    val expect = List.empty
+    assert(result == expect)
+  }
+
   "Service.removeOverlapping test1.txt" should "return a result set with a single bounding box" in {
     val bbs = List(
       BoundingBox(0, 1, 1, 0),

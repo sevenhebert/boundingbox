@@ -1,4 +1,5 @@
-# How to
+# Bounding Box
+
 ## Design
 1) Collect a set of non-grouped input values and their indices where the character is a '*'
 2) Run a breath first search for neighboring values against the first value in the set of non-grouped input values from (1)

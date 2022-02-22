@@ -10,11 +10,11 @@ object Service {
   private def getNeighbors(rem: List[Node], q: List[Node], res: List[Node]): (List[Node], List[Node]) = q match {
     case Nil => (rem, res)
     case cur :: rest =>
-      val Node(x, y) = cur
-      val left = Node(x - 1, y)
-      val right = Node(x + 1, y)
-      val top = Node(x, y - 1)
-      val bottom = Node(x, y + 1)
+      val Node(r, c) = cur
+      val top = Node(r - 1, c)
+      val bottom = Node(r + 1, c)
+      val right = Node(r, c + 1)
+      val left = Node(r, c - 1)
 
       val neighbors = rem.intersect(List(left, right, bottom, top))
       val remainingUpdate = rem.diff(neighbors)
