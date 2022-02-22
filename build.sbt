@@ -16,6 +16,7 @@ lazy val app = (project in file("."))
 //coverageMinimumStmtTotal := 80
 //coverageMinimumBranchTotal := 80
 coverageExcludedPackages := List(
-  "boundingbox.model",
   "boundingbox.Main",
+  "boundingbox.model",
+  "boundingbox.Parser",
 ).mkString(";")

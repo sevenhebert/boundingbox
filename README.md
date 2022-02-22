@@ -1,4 +1,11 @@
 # How to
+## Design
+* Collect a set of input values and their indices where the character is a '*'
+* Breath first search for neighboring values
+* Once the first BFS exits with a group of neighbors, take the remaining set and run the same BFS as before
+* Once the set of (non-grouped) input values is empty find the (top, left) and (bottom, right) box boundaries from each group of neighbors
+* Check each resulting bounding box against permutations of the result set to find and eliminate overlapping boxes 
+
 ## Build
 In order to build the project Scala and SBT must be installed:
 <https://www.scala-lang.org/download/2.12.10.html>
